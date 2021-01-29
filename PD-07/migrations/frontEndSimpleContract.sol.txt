@@ -1,0 +1,6 @@
+var MyContract = artifacts.require(“frontEndSimpleContract”);
+
+module.exports = function(deployer) {
+  // Hier wordt het gedeployed. 
+  deployer.deploy(frontEndSimpleContract.sol);
+};

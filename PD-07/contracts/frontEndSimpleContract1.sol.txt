@@ -1,0 +1,25 @@
+pragma solidity 0.5.12;
+
+
+
+contract simpleContract {
+
+	string private data;
+
+
+
+	function setInfo(string memory _data) public {
+
+			data = _data;
+
+	}
+
+
+
+	function getInfo() public view returns (string memory) {
+
+			return data;
+
+	}
+
+}
