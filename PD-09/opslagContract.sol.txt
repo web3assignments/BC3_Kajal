@@ -1,0 +1,32 @@
+pragma solidity >0.6.0;
+import "@openzeppelin/upgrades-core/contracts/Initializable.sol";
+
+/** @author Kajal Boedhoe
+    @title Een opslag
+*/
+
+contract Opslag {
+
+ address payable private owner;
+
+ uint256 number; initialize() {
+  owner = msg.sender;
+ } 
+
+function store(uint256 num) public {
+  number = num;
+ } 
+
+function retrieve() public view returns (uint256){
+  return number;
+ }
+
+modifier onlyOwner() {
+     require(msg.sender == owner, "not owner");
+     _;
+ }
+ 
+ function close() public { 
+  selfdestruct(owner); 
+ }
+}
