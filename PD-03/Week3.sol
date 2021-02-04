@@ -10,7 +10,7 @@ contract bank {
 
     // Constructor is ‘betaalbaar’  dus kan de aanvankelijke financiering van 20 ontvangen. 
     constructor() public payable {
-        require(msg.value == 20 ether, "20 ether initiële financiering is vereist");
+        require(msg.value == 2 ether, "2 ether initiële financiering is vereist");
         owner = msg.sender;
         klantCount = 0;
     }
