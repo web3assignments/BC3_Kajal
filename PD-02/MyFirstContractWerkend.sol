@@ -8,9 +8,9 @@ contract bank {
     // Dit event logged een aanbetaling die is gedaan door een bepaald adres en het bedrag ervan.
     event LogDepositMade(address indexed accountAddress, uint amount);
 
-    // Constructor is ‘betaalbaar’  dus kan de aanvankelijke financiering van 20 ontvangen. 
+    // Constructor is ‘betaalbaar’  dus kan de aanvankelijke financiering van 2 ontvangen. 
     constructor() public payable {
-        require(msg.value == 20 ether, "20 ether initiële financiering is vereist");
+        require(msg.value == 2 ether, "2 ether initiële financiering is vereist");
         owner = msg.sender;
         klantCount = 0;
     }
@@ -19,7 +19,7 @@ contract bank {
     function enroll() public returns (uint) {
         if (klantCount < 3) {
             klantCount++;
-            balances[msg.sender] = 10 ether;
+            balances[msg.sender] = 5 ether;
         }
         return balances[msg.sender];
     }
