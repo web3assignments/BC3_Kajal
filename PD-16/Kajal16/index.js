@@ -1,4 +1,4 @@
-const contract_address = '0xb2b94c93bdE5F6dd53F3eE4F33D95Aec21499475';
+const contract_address = '0xC17525a517161D9b5C5F73847117fcf8E98E7964';
 const abi = [
 	{
 		"inputs": [],
