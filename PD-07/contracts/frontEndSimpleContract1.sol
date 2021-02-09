@@ -1,6 +1,6 @@
 pragma solidity ^0.6.0;
 
-contract KajalOpslag {
+contract frontEndSimpleContract1 {
     uint private numbers;
     string private names; //later use
 
