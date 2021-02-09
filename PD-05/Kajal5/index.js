@@ -1,61 +1,34 @@
 //contract voor de deployment op rinkeby via remix
 
-const contract_address = '0x38B93bBF2c75599C81552E1C946AbfE95c00c17d';
+const contract_address = '0xF55cc8D98e1666235f59306b603eD3cB0b2FC96D';
 
 const abi = [
-
-{
-
-"inputs": [
-
-{
-
-"internalType": "uint256",
-
-"name": "_numbers",
-
-"type": "uint256"
-
-}
-
-],
-
-"name": "setNumbers",
-
-"outputs": [],
-
-"stateMutability": "nonpayable",
-
-"type": "function"
-
-},
-
-{
-
-"inputs": [],
-
-"name": "getNumbers",
-
-"outputs": [
-
-{
-
-"internalType": "uint256",
-
-"name": "",
-
-"type": "uint256"
-
-}
-
-],
-
-"stateMutability": "view",
-
-"type": "function"
-
-}
-
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_numbers",
+				"type": "uint256"
+			}
+		],
+		"name": "setNumbers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getNumbers",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
 ]
 
 
