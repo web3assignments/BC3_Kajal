@@ -1,8 +1,8 @@
 
 const { deployProxy } = require('@openzeppelin/truffle-upgrades');
-var KajalOpslag = artifacts.require("KajalOpslag");
+var frontEndSimpleContract1 = artifacts.require("frontEndSimpleContract1");
 
 module.exports = async function(deployer) {
-    const KajalOpslag = await deployProxy(KajalOpslag, {deployer});
-    console.log(`Address of KajalOpslag: ${KajalOpslag.address}`)
+    const frontEndSimpleContract1 = await deployProxy(frontEndSimpleContract1, {deployer});
+    console.log(`Address of frontEndSimpleContract1: ${frontEndSimpleContract1.address}`)
 };
