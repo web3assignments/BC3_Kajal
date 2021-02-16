@@ -1,6 +1,6 @@
 pragma solidity 0.6.0;
 
-contract OpslaanData {
+contract Kajalcontract {
     string private gegevens;
 
     function setGegevens(string memory _gegevens) public {
