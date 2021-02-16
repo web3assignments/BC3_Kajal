@@ -6,12 +6,12 @@ import "@openzeppelin/upgrades-core/contracts/Initializable.sol";
 /// @author Kajal
 /// @notice dont use this contract for real use it only implements the basics to show some working function for the assignment
 /// @dev Functions are working but for web usage eth that gets send needs to be coded
-contract frontEndSimpleContract1 is Initializable {
+contract OpslaanData is Initializable {
 /// @author Kajal
 /// @notice kill contract and deposit only works if you are the owner
 /// @dev working application in remix
-event numbers(address sender, uint amount, uint balance);
-    string private names; //later use
+
+    string private gegevens;
 
     address payable public owner;
    
@@ -23,15 +23,14 @@ event numbers(address sender, uint amount, uint balance);
      require(msg.sender == owner, "not owner");
      _;
  }
-    //demonstrate that only the owner can deposit in the contract
-     function depositnumbers() public payable onlyOwner{
-     emit numbers(msg.sender, msg.value, address(this).balance);
- }
-    ///@return balance of the smartcontract dont need to be the owner to see it
-    //gets the current stored balance value
-    function numberstBalance() public view returns (uint){
-     return address(this).balance;
- }
+    
+ function setGegevens(string memory _gegevens) public onlyOwner {
+        gegevens = _gegevens;
+    }
+    
+ function getGegevens() public view returns (string memory) {
+        return gegevens;
+    }
     //can only be used by the owner to kill the contract
     //commented because zepplin cant compile with this
     //function close() public { 
