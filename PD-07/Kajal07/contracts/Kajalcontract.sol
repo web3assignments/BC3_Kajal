@@ -1,19 +1,13 @@
-pragma solidity ^0.6.0;
+pragma solidity 0.6.0;
 
-contract Kajalcontract{
-    uint private numbers;
-    string private names; //later use
+contract OpslaanData {
+    string private gegevens;
 
-    function setNumbers(uint _numbers) public {
-        numbers = _numbers;
+    function setGegevens(string memory _gegevens) public {
+        gegevens = _gegevens;
     }
 
-    function getNumbers() public view returns (uint) {
-        return numbers;
+    function getGegevens() public view returns (string memory) {
+        return gegevens;
     }
-    
-    //future improvement
-    //modifier onlyOwner() {
-     //require(msg.sender == owner, "not the owner");
-    // _;
- }
+}
