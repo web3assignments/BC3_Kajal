@@ -1,4 +1,4 @@
-//this is for infura
+//Dit is voor infura
 
 const ipfs = window.IpfsHttpClient("https://ipfs.infura.io:5001");
 
@@ -8,7 +8,7 @@ document.getElementById('log').innerHTML += logstr + "\n";
 
 }
 
-//upload the file
+//uploaden van bestanden naar IPFS
 
 async function upload() {
 
@@ -52,9 +52,9 @@ var hash = document.getElementById('hashImageId').value;
 
 for await (const result of ipfs.cat(hash))
 
-ui8arr.push(result) // get all parts of the image
+ui8arr.push(result) // Haalt de images op
 
-var blob = new Blob(ui8arr, { type: "image/jpeg" }); // convert to blob
+var blob = new Blob(ui8arr, { type: "image/jpeg" }); 
 
 var url = URL.createObjectURL(blob);
 
