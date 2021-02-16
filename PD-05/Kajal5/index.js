@@ -1,29 +1,29 @@
 //contract voor de deployment op rinkeby via remix
 
-const contract_address = '0xF55cc8D98e1666235f59306b603eD3cB0b2FC96D';
+const contract_address = '0xcf8cD83B00328766711385AF4A2836E0006E9622';
 
 const abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_numbers",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "_gegevens",
+				"type": "string"
 			}
 		],
-		"name": "setNumbers",
+		"name": "setGegevens",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "getNumbers",
+		"name": "getGegevens",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "string",
 				"name": "",
-				"type": "uint256"
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -63,96 +63,33 @@ window.addEventListener('load', asyncloaded);
 
 
 
-//functie op data te verzenden
+//functie voor het opslaan van gegevens 
 
-function storeNumbers(){
+function storeGegevens(){
 
-var numberstored = document.getElementById("numberstored").value;
+var gegevensstored = document.getElementById("gegevensstored").value;
 
-console.log(numberstored);
+console.log(gegevensstored);
 
-contract.methods.setNumbers(numberstored).send({from: accounts[0]});
+contract.methods.setGegevens(gegevensstored).send({from: accounts[0]});
 
-console.log(numberstored);
-
-}
-
-
-
-//functie om data op te halen
-
-function getNumbers() {
-
-//contract call naar de sol contract
-
-contract.methods.getNumbers().call().then( function( Numberss ) {
-
-console.log("this is the stored number: ", Numberss);
-
-document.getElementById('Numberss').innerHTML = Numberss;
-
-});
+console.log(gegevensstored);
 
 }
 
 
 
-//voor de navigatie
+//functie voor het ophalen van gegevens
 
-$(document).ready(function () {
+function getGegevens() {
 
+contract.methods.getGegevens().call().then( function( Gegevenss ) {
 
+console.log("Dit zijn de opgeslagen gegevens: ", Gegevenss);
 
-$('.navbar .dropdown-item').on('click', function (e) {
+document.getElementById('Gegevenss').innerHTML = Gegevenss;
 
-var $el = $(this).children('.dropdown-toggle');
-
-var $parent = $el.offsetParent(".dropdown-menu");
-
-$(this).parent("li").toggleClass('open');
-
-
-
-if (!$parent.parent().hasClass('navbar-nav')) {
-
-if ($parent.hasClass('show')) {
-
-$parent.removeClass('show');
-
-$el.next().removeClass('show');
-
-$el.next().css({"top": -999, "left": -999});
-
-} else {
-
-$parent.parent().find('.show').removeClass('show');
-
-$parent.addClass('show');
-
-$el.next().addClass('show');
-
-$el.next().css({"top": $el[0].offsetTop, "left": $parent.outerWidth() - 4});
+});
 
 }
 
-e.preventDefault();
-
-e.stopPropagation();
-
-}
-
-});
-
-
-
-$('.navbar .dropdown').on('hidden.bs.dropdown', function () {
-
-$(this).find('li.dropdown').removeClass('show open');
-
-$(this).find('ul.dropdown-menu').removeClass('show open');
-
-});
-
-
-
-});
