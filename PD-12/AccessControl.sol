@@ -1,33 +1,25 @@
-pragma solidity ^0.6.0;
+pragma solidity 0.7.0;
+/// @title accesscontrol bewaard gegevens en haalt gegevens op
 
-/// @title AccessControl save numbers and retrieve them
+// een eenvoudige contract om te laten zien dat de accescontrol werkt
 
-// import the library from zepplin with this raw githubcontent otherwise you will get a error in remix
-// Relatively simple contract to show the use of the access control
+//import library raw van zepplin als dit want anders werkt het niet in remix
 import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/master/contracts/access/Ownable.sol";
 
-contract AccessControl is Ownable {
-    string data = "testdata";
-    uint number = 5000;
-   
+contract OpslaanData is Ownable{
+    string private gegevens;
+
     constructor() public Ownable() {
   
     }
-    //demonstrate the access control on this function
-    function saveTextData(string memory _data) public onlyOwner {
-        data = _data;
+    
+    //accescontrol
+    function setGegevens(string memory _gegevens) public Ownable {
+        gegevens = _gegevens;
     }
-    //demonstrate the acces control on this function 
-    function GetTextData() public onlyOwner view returns (string memory) {
-        return data;
-    }
-    //demonstration a function without the acces control
-    function SaveNumberData(uint _number) public{
-        number = _number;
-    }
-    //demonstration a function without the acces control
-    function GetNumberData()public view returns(uint)
-    {
-        return number;
+
+    function getGegevens() public view returns (string memory) {
+        return gegevens;
     }
 }
+
