@@ -6,7 +6,7 @@ import "@openzeppelin/upgrades-core/contracts/Initializable.sol";
 /// @author Kajal
 /// @notice dont use this contract for real use it only implements the basics to show some working function for the assignment
 /// @dev Functions are working but for web usage eth that gets send needs to be coded
-contract OpslaanData is Initializable {
+contract OpslaanGegevens is Initializable {
 /// @author Kajal
 /// @notice kill contract and deposit only works if you are the owner
 /// @dev working application in remix
