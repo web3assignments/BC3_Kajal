@@ -10,16 +10,16 @@ contract bank {
 
     // Constructor is ‘betaalbaar’  dus kan de aanvankelijke financiering van 2 ontvangen. 
     constructor() public payable {
-        require(msg.value == 2 ether, "2 ether initiële financiering is vereist");
+        require(msg.value == 1 ether, "1 ether initiële financiering is vereist");
         owner = msg.sender;
         klantCount = 0;
     }
 
- 		// De balans van de gebruiker wordt gereturned na registratie van de gebruiker. Verder krijgt deze klant ook 2 ether’s als cadeau van de totale 5.
+ 		// De balans van de gebruiker wordt gereturned na registratie van de gebruiker. Verder krijgt deze klant ook 2 ether’s cadeau.
     function enroll() public returns (uint) {
-        if (klantCount < 3) {
+        if (klantCount < 2) {
             klantCount++;
-            balances[msg.sender] = 5 ether;
+            balances[msg.sender] = 2 ether;
         }
         return balances[msg.sender];
     }
