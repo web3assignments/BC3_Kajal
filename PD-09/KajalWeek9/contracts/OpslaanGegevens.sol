@@ -32,9 +32,8 @@ contract OpslaanGegevens is Initializable {
  function getGegevens() public view returns (string memory) {
         return gegevens;
     }
-    //can only be used by the owner to kill the contract
     //commented because zepplin cant compile with this
     //function close() public { 
-    //selfdestruct(owner); 
+    //selfdestruct(onlyOwner); 
     //}
  }
