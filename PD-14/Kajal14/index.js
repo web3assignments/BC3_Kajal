@@ -61,3 +61,12 @@ var url = URL.createObjectURL(blob);
 document.getElementById("myimage").src = url;
 
 }
+
+async function naming() { 
+            web3 = new Web3(Web3.givenProvider);
+            const name='kejel.eth';
+            log(`Checking ${name}`);            
+            var address=await web3.eth.ens.getAddress(name);
+            log (`Address: ${address}`);              
+        }
+        naming();
