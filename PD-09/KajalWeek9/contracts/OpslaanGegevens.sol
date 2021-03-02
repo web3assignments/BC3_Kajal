@@ -34,6 +34,6 @@ contract OpslaanGegevens is Initializable {
     }
     //commented because zepplin cant compile with this
     //function close() public { 
-    //selfdestruct(onlyOwner); 
+    //selfdestruct(owner); 
     //}
  }
