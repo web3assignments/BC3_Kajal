@@ -33,22 +33,17 @@ contract bank {
 
 	// Return: de overgebleven balans wordt gegeven.
     function withdraw(uint withdrawAmount) public returns (uint remainingBal) {
-        // Controleert of er genoeg op de bank zit anders return het gewoon de balans.
+        // Controleert of er genoeg op de bank zit anders wordt de uitvoering afgebroken (error handling).
         if (withdrawAmount <= balances[msg.sender]) {
             balances[msg.sender] -= withdrawAmount;
             msg.sender.transfer(withdrawAmount);
 	    emit LogDepositMade(msg.sender, withdrawAmount);
         }
-        return balances[msg.sender];
+	revert();
     }
 
 	// Returned de balans van de gebruiker, dit wordt alleen gelezen, vandaar view.
     function balance() public view returns (uint) {
         return balances[msg.sender];
-    }
-
-   // Met de revert methode wordt de uitvoering afgebroken en eventuele wijzigingen ongedaan gemaakt (error handling).
-    function depositsBalance() public view returns (uint) {
-        revert();
     }
 }
