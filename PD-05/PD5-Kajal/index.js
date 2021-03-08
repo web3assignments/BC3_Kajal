@@ -54,3 +54,17 @@ function getGegevens() {
       document.getElementById('getgegevens').innerHTML = getGegevens;
     });
   }
+
+function setGetal(){
+    var getalOpgeslagen = document.getElementById("getalOpgeslagen").value;
+    console.log(getalOpgeslagen);
+    contract.methods.SaveNumberData(getalOpgeslagen).send({from: accounts[0]});
+    console.log(getalOpgeslagen);
+} 
+
+  function GetGetal() {
+    contract.methods.ophalenGetal().call().then( function( Getallen ) {
+      console.log("Dit is het opgeslagen getal: ", Getallen);
+      document.getElementById('Getallen').innerHTML = Getallen;
+    });
+}
