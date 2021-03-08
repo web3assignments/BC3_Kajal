@@ -37,6 +37,7 @@ contract bank {
         if (withdrawAmount <= balances[msg.sender]) {
             balances[msg.sender] -= withdrawAmount;
             msg.sender.transfer(withdrawAmount);
+	    emit LogDepositMade(msg.sender, withdrawAmount);
         }
         return balances[msg.sender];
     }
