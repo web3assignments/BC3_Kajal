@@ -49,8 +49,8 @@ function setGegevens(){
 }
 
 function getGegevens() {
-    contract.methods.getGegevens().call().then( function( getGegevens ) {
-      console.log("getGegevens: ", getGegevens);
-      document.getElementById('getgegevens').innerHTML = getGegevens;
+    contract.methods.getGegevens().call().then( function( gegevens ) {
+      console.log("gegevens: ", gegevens);
+      document.getElementById('uitkomstGegevens').innerHTML = gegevens;
     });
   }
